@@ -13,6 +13,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 import pytest
+
 from meridian_analytics.ab_testing import (
     bonferroni_correct,
     compare_distributions,
@@ -284,7 +285,7 @@ def test_random_splitting_produces_optimistic_results(deposit_series):
     result = demonstrate_leakage(deposit_series, horizon=30)
     assert result["random_split"].mape < result["chronological_split"].mape
     assert result["optimism_ratio"] > 1.5, (
-        f"expected the honest split to be clearly worse, got " f"{result['optimism_ratio']:.2f}x"
+        f"expected the honest split to be clearly worse, got {result['optimism_ratio']:.2f}x"
     )
 
 
