@@ -283,9 +283,9 @@ def test_random_splitting_produces_optimistic_results(deposit_series):
     """
     result = demonstrate_leakage(deposit_series, horizon=30)
     assert result["random_split"].mape < result["chronological_split"].mape
-    assert result["optimism_ratio"] > 1.5, (
-        f"expected the honest split to be clearly worse, got " f"{result['optimism_ratio']:.2f}x"
-    )
+    assert (
+        result["optimism_ratio"] > 1.5
+    ), f"expected the honest split to be clearly worse, got {result['optimism_ratio']:.2f}x"
 
 
 def test_seasonal_naive_beats_naive_on_seasonal_data():

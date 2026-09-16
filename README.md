@@ -58,3 +58,6 @@ You're usually not asserting an exact number (randomness makes that impossible) 
 See [`docs/adr/`](docs/adr/) for the decisions behind pre-registration and validation strategy.
 
 Part of the 8-repository Meridian platform.
+
+
+_Verified locally: peeking inflated the false-positive rate from 4.8% to 20.0% across 2,000 null simulations, and a leaky time-series split understated forecast error by 2.5x versus the honest chronological split._

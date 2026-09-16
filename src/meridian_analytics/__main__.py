@@ -64,7 +64,7 @@ def cmd_power(_args) -> int:
     print("=" * 72)
     noisy = required_sample_size_means(4200, 3100, 150)
     quiet = required_sample_size_means(4200, 1550, 150)
-    print(f"\nDetecting a $150 change in average balance:")
+    print("\nDetecting a $150 change in average balance:")
     print(f"  with std $3,100:  {noisy.n_per_group:>7,} per group")
     print(f"  with std $1,550:  {quiet.n_per_group:>7,} per group")
     print(f"  -> {noisy.n_per_group / quiet.n_per_group:.0f}x fewer samples for half the variance")
@@ -104,7 +104,8 @@ def cmd_peeking(args) -> int:
         f"{f'Peek every {peek_every}, stop if p<0.05':<40}{peeking:>16,}{peeking / n_sims:>10.1%}"
     )
     print()
-    print(f"Peeking {final_n // peek_every} times inflates the error rate ~{peeking / max(honest, 1):.1f}x.")
+    ratio = peeking / max(honest, 1)
+    print(f"Peeking {final_n // peek_every} times inflates the error rate ~{ratio:.1f}x.")
     print()
     print("WHY: every look is a fresh chance to cross the threshold by luck.")
     print("A random walk crosses any fixed line eventually if you keep watching.")
