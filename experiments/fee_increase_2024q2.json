@@ -1,0 +1,21 @@
+{
+  "name": "monthly_fee_increase_2024q2",
+  "hypothesis": "Raising the monthly maintenance fee from $9 to $12 increases 90-day churn among mass-segment checking customers.",
+  "primary_metric": "churn_90d",
+  "secondary_metrics": [
+    "avg_daily_balance",
+    "transaction_count_30d"
+  ],
+  "randomization_unit": "customer",
+  "minimum_detectable_effect": 0.02,
+  "alpha": 0.05,
+  "power": 0.8,
+  "required_n_per_group": 3213,
+  "planned_duration_days": 90,
+  "stopping_rule": "Analyse ONCE after all customers reach 90 days of exposure. No interim analysis. If a guardrail breaches its threshold, escalate to the product owner rather than silently stopping.",
+  "guardrail_metrics": [
+    "complaint_rate",
+    "nps"
+  ],
+  "registered_on": "2024-04-01"
+}
